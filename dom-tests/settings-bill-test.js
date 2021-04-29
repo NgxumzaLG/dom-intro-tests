@@ -102,7 +102,7 @@ describe('Use values ', function () {
         assert.equal(1.70,settingsBill.getTotalSmsCost());        
     });   
     describe('warning & critical level', function(){
-        it("it should return a class of 'warning' if warning level is been reached",function(){
+        it("it should return a class of 'warning' if warning level has been reached",function(){
             let settingsBill = BillWithSethings();
             
             settingsBill.setCallCost(1.35);
@@ -117,7 +117,7 @@ describe('Use values ', function () {
             assert.equal('warning',settingsBill.totalClassName());
         });
     
-        it("it should return a class of 'critical' if critical level is been reached",function(){
+        it("it should return a class of 'critical' if critical level has been reached",function(){
             let settingsBill = BillWithSethings();
             
             settingsBill.setCallCost(1.35);

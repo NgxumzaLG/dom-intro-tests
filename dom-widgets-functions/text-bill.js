@@ -28,11 +28,22 @@ function textBill() {
 
     }
 
+    function totalTextClassName(){
+        if (textAddTotal() >= 50){
+            return 'critical';
+
+        } else if (textAddTotal() >= 30){
+            return 'warning';
+
+        }
+    }
+
     return {
         textAddCost,
         getTextCallTotal,
         getTextSmsTotal,
-        textAddTotal
+        textAddTotal,
+        totalTextClassName
 
     }
 

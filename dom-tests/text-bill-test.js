@@ -100,4 +100,74 @@ describe('Text bill factory function', function() {
         assert.equal(22.00, textBillWidget.getTextCallTotal());
 
     });
+
+    describe('Warning & critical level', function(){
+        it('should return a class of "warning" if warning level has been reached.', function(){
+            let textBillWidget = textBill();
+
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+
+            assert.equal(32.25, textBillWidget.textAddTotal());
+            assert.equal('warning', textBillWidget.totalTextClassName())
+    
+        });
+
+        it('should return a class of "critical" if critical level has been reached.', function(){
+            let textBillWidget = textBill();
+
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('sms');
+            textBillWidget.textAddCost('call');
+            textBillWidget.textAddCost('call');
+
+            assert.equal(53.25, textBillWidget.textAddTotal());
+            assert.equal('critical', textBillWidget.totalTextClassName())
+    
+        });
+    });
 });

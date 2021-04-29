@@ -103,4 +103,72 @@ describe('Radio bill factory function', function() {
         assert.equal(27.50, radioBillWidget.getRadioCallTotal());
 
     });
+
+    describe('Warning & critical level', function(){
+        it('should return a class of "warning" if warning level has been reached.', function(){
+            let radioBillWidget = radioBill();
+
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+    
+            assert.equal(33.50, radioBillWidget.radioAddTotal());
+            assert.equal('warning', radioBillWidget.totalRadioClassName())
+    
+        });
+
+        it('should return a class of "critical" if critical level has been reached.', function(){
+            let radioBillWidget = radioBill();
+
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('sms');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+            radioBillWidget.radioAddCost('call');
+    
+            assert.equal(53.75, radioBillWidget.radioAddTotal());
+            assert.equal('critical', radioBillWidget.totalRadioClassName())
+    
+        });
+    });
+
 });

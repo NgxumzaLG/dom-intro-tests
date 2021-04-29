@@ -1,3 +1,4 @@
+
 function BillWithSethings() {
     var theCallCost = 0;
     var theSmsCost = 0;

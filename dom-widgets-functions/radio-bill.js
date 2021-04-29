@@ -28,11 +28,22 @@ function radioBill() {
 
     }
 
+    function totalRadioClassName(){
+        if (radioAddTotal() >= 50){
+            return 'critical';
+
+        } else if (radioAddTotal() >= 30){
+            return 'warning';
+
+        }
+    }
+
     return {
         getRadioCallTotal,
         getRadioSmsTotal,
         radioAddCost,
-        radioAddTotal
+        radioAddTotal,
+        totalRadioClassName
 
     }
 

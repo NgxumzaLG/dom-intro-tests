@@ -4,7 +4,8 @@ function calculateBill() {
     var billCallTotal = 0;
     var i = 0;
 
-    function calculateAddCost(billItems){
+    function calculateAddCost(sentBill){
+        var billItems = sentBill.split(',');  
         for (i; i<billItems.length;i++){
             var billItem = billItems[i].trim();
 
@@ -33,10 +34,21 @@ function calculateBill() {
          
      }
 
+     function totalCalClassName(){
+        if (getBillTotal() >= 30){
+            return 'critical';
+
+        } else if (getBillTotal() >= 20){
+            return 'warning';
+
+        }
+    }
+
     return {
         calculateAddCost,
         getBillCallTotal,
         getBillSmsTotal,
-        getBillTotal
+        getBillTotal,
+        totalCalClassName
     }
 }
